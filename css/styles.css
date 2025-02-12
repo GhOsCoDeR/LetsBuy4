@@ -1,0 +1,554 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color: #f8f8f8;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: none;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5733;
+}
+
+/* Search bar styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    border-radius: 20px;
+    width: 300px;
+    transition: none;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #555;
+    font-size: 18px;
+}
+
+/* User icons styling */
+.user-icons a {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.user-icons a:hover {
+    color: #f8c24f; /* Highlight color on hover */
+}
+
+/* Dropdown Styling */
+.user-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 250px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+
+.user-dropdown h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+.user-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.user-icons span {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.user-dropdown a:hover {
+    background: #f0f0f0;
+}
+
+/* Form Fields */
+.user-dropdown input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-dropdown button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.user-dropdown button:hover {
+    background: #218838;
+}
+
+/* Toggle Links */
+.user-dropdown p {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.user-dropdown a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.user-dropdown a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure User Icon is Positioned Correctly */
+.user-icons {
+    position: relative;
+}
+
+/* Show dropdown when active */
+.user-icons.active .user-dropdown {
+    display: block;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+/* NAVIGATION */
+nav {
+    background: #444;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul li {
+    padding: 10px 20px;
+    position: relative;
+    display: flex; /* Makes the items appear in a row */
+    
+}
+
+.navbar .nav-item a i {
+    margin-right: 8px; /* Adds space between the icon and text */
+    font-size: 18px; /* Adjust icon size */
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex; /* Makes the items appear in a row */
+    
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 150px;
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+nav .dropdown-menu li {
+    padding: 10px;
+}
+
+nav .dropdown-menu li a {
+    color: white;
+    display: block;
+}
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: black;
+}
+
+
+nav ul li:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+
+/* FEATURED PRODUCTS */
+.products {
+    padding: 40px;
+    text-align: center;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.product-card {
+    width: 220px; /* Ensure all cards have the same width */
+    height: 350px; /* Set a consistent height */
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card img {
+    width: 100%; /* Makes sure it fits the card */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: contain; /* Ensures full image is displayed */
+    border-radius: 8px;
+    background-color: #f5f5f5; /* Adds a light background for transparent images */
+}
+
+
+.product-card h3 {
+    font-size: 14px;
+    font-weight: bold;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; Adds "..." for long names */
+    margin-top: 10px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #777;
+    margin: 5px 0;
+}
+.favorite-btn {
+    font-size: 20px;
+    color: #ff4d4d; /* Red for liked */
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.favorite-btn .far {
+    color: #ccc; /* Gray when not liked */
+}
+
+.favorite-btn .fas {
+    color: #ff4d4d; /* Red when liked */
+}
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    margin-top:10px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.product-card .btn:hover {
+    background: #e91e63;
+}
+
+
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.footer-section {
+    width: 30%;
+}
+.social-icons a {
+    color: white;
+    margin-right: 10px;
+}
+
+
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Box */
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #343a40;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #495057;
+}
+
+/* Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Textarea Styling */
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* File Upload */
+input[type="file"] {
+    padding: 8px;
+    border: none;
+    background: #fff;
+}
+
+/* Buttons */
+button {
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Back Button */
+.back-btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    color: #0056b3;
+}
+
+/* Ensure full-page background with responsive styling */
+.hero {
+    background: url('../images/background.jpg') no-repeat center center/cover; /* Fix path */
+    height: 400px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    width: 100%;
+}
+
+/* Dark overlay for better text visibility */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Ensures text appears above overlay */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Styling for text */
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.hero .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff5722; /* Change to match your theme */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.hero .btn:hover {
+    background: #e64a19;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+}
